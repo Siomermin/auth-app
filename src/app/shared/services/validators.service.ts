@@ -35,4 +35,16 @@ export class ValidatorsService {
 
     return null;
   }
+
+  getFirebaseAuthErrorByCode(code: string): string {
+    switch (code) {
+      case 'auth/invalid-credential':
+        return 'Las credenciales son incorrectas.';
+
+        case 'auth/email-already-in-use':
+          return 'El correo electrónico ya está siendo utilizado por otro usuario.'
+    }
+
+    return '';
+  }
 }
