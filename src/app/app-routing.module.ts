@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
+  {
     path: 'auth',
     loadChildren: () =>  import('./auth/auth.module').then( m => m.AuthModule )
   },
@@ -13,8 +17,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'auth'
-  }
-
+  },
 ];
 
 @NgModule({
