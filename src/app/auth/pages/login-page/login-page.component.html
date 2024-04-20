@@ -1,11 +1,13 @@
-<h1>Login</h1>
+
+<ion-content class="ion-padding">
+<h1>Iniciar sesión</h1>
 
 <!-- Loading Spinner -->
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <ion-item>
-    <ion-input label="E-Mail" formControlName="email" type="text"></ion-input>
+    <ion-input label="Correo electrónico" formControlName="email" type="text"></ion-input>
     <ion-text color="danger" *ngIf="isValidField('email')">
       {{ getErrorByField("email") }}</ion-text
     >
@@ -13,7 +15,7 @@
 
   <ion-item>
     <ion-input
-      label="Password"
+      label="Contraseña"
       formControlName="password"
       type="text"
     ></ion-input>
@@ -21,12 +23,14 @@
       {{ getErrorByField("password") }}
     </ion-text>
   </ion-item>
-  <ion-button block color="primary" type="submit" [disabled]="myForm.invalid">
-    Login
+  <ion-button class="ion-padding" color="primary" type="submit" expand="block" [disabled]="myForm.invalid">
+    Iniciar sesión
   </ion-button>
 </form>
 
-<a routerLink="/auth/register"> No tenes cuenta? Registrate </a>
+<ion-text color="primary">
+  <a routerLink="/auth/register"> No tenes cuenta? Registrate!</a>
+</ion-text>
 
 <!-- Acceso rapido -->
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
@@ -42,3 +46,5 @@
     </ion-fab-button>
   </ion-fab-list>
 </ion-fab>
+
+</ion-content>
