@@ -52,6 +52,12 @@ export class ChatAComponent  implements OnInit {
 
   sendMessage() {
     if (this.message == '') return;
+    let trimmedMessage = this.message.trim().substring(0, 21); // Limita el mensaje a 21 caracteres
+
+    if (trimmedMessage.length < this.message.trim().length) {
+      // Muestra una alerta o mensaje indicando que el mensaje se truncó
+      console.warn('El mensaje se truncó a 21 caracteres.');
+    }
 
     let date = new Date();
     const timestamp = new Date(date);

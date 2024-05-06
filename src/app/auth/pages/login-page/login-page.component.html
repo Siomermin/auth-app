@@ -30,7 +30,7 @@
     </ion-text>
   </ion-item>
   <br>
-  <ion-button class="ion-padding" color="primary" type="submit" expand="full" [disabled]="myForm.invalid">
+  <ion-button class="ion-padding" color="secondary" type="submit" expand="full" [disabled]="myForm.invalid">
     <ion-icon name="log-in"></ion-icon>
   </ion-button>
 </form>
@@ -42,8 +42,8 @@
 <!-- Acceso rapido -->
 <ion-list>
   <h3>Acceso rápido</h3>
-  <ion-item  *ngFor="let user of testUsers | slice : 0 : 3"   (click)="fastLogin(user.email, user.password)">
-    <ion-checkbox justify="space-between"> {{ user.profile }}</ion-checkbox>
+  <ion-item *ngFor="let user of testUsers | slice : 0 : 3" (click)="selectCheckbox(user)" (click)="fastLogin(user.email, user.password)">
+    <ion-checkbox [checked]="checkboxSelected === user" justify="space-between">{{ user.profile }}</ion-checkbox>
   </ion-item>
 </ion-list>
   </div>

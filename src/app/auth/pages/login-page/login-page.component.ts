@@ -15,6 +15,8 @@ export class LoginPageComponent implements OnInit {
   private validatorsService = inject(ValidatorsService);
   private authService = inject(AuthService);
 
+  checkboxSelected: any = null; // Variable para almacenar el checkbox seleccionado
+
   public testUsers: TestUser[] = [];
   public isLoading: boolean = false;
 
@@ -28,6 +30,10 @@ export class LoginPageComponent implements OnInit {
     ],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
+
+  selectCheckbox(user: any) {
+    this.checkboxSelected = user; // Asignar el usuario seleccionado a la variable
+  }
 
   ngOnInit(): void {
     this.testUsers = this.authService.testUsers;
