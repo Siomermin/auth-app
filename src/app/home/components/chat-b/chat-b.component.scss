@@ -2,16 +2,21 @@
   --ion-safe-area-bottom: 0;
 }
 
-// .message-container {
-//   background-color: #dfe2e4;
-// }
-
 ion-footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999; /* Adjust this value as needed */
+}
+
+.message-container {
+  max-height: calc(100vh - 50px); /* Adjust based on footer height */
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 300px;
 }
 
 .message-details {
@@ -41,11 +46,11 @@ ion-footer {
 
 .message.sent .message-content {
   background-color: #c5000f; /* Background color for sent messages */
-  border-radius: 5%;
+  border-radius: 1%;
 }
 
 .message.received .message-content {
   background-color: #c0404a; /* Background color for received messages */
-  border-radius: 5%;
+  border-radius: 1%;
 
 }
