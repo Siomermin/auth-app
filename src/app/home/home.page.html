@@ -1,23 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="logout()" expand="block" shape="round" color="danger">
+      Cerrar sesión
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <ion-header >
-    <ion-toolbar>
-        <ion-button
-          (click)="logout()"
-          expand="block"
-          shape="round"
-          color="danger"
-        >
-        Cerrar sesión
-        </ion-button>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>{{ loggedUser?.email }}</strong>
+  <div class="container">
+    <ion-button
+      expand="full"
+      color="secondary"
+      class="PPS-4B"
+      routerLink="chat-a"
+      ><h1>PPS-4A</h1>
+    </ion-button>
+    <ion-button expand="full" color="danger" class="PPS-4B" routerLink="chat-b"
+      ><h1>PPS-4B</h1>
+    </ion-button>
   </div>
-
-  <pre>
-    {{ loggedUser.name }}
-
-  </pre>
 </ion-content>

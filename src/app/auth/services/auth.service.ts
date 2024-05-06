@@ -66,6 +66,12 @@ export class AuthService {
     });
   }
 
+  getLoggedUser() {
+    this.afAuth.authState.subscribe((user) => {
+     return user;
+    });
+  }
+
   login(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)

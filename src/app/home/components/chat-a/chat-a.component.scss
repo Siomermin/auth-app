@@ -1,0 +1,51 @@
+.content {
+  --ion-safe-area-bottom: 0;
+}
+
+// .message-container {
+//   background-color: #dfe2e4;
+// }
+
+ion-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Adjust this value as needed */
+}
+
+.message-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.message-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-wrapper.sent {
+  justify-content: flex-end;
+}
+
+.message-wrapper.received {
+  justify-content: flex-start;
+}
+
+.message-content {
+  min-width: 200px;
+  min-height: 50px;
+  padding: 0px 5px 5px 5px;
+}
+
+.message.sent .message-content {
+  background-color: #0163aa; /* Background color for sent messages */
+  border-radius: 5%;
+}
+
+.message.received .message-content {
+  background-color: #3573a0; /* Background color for received messages */
+  border-radius: 5%;
+
+}

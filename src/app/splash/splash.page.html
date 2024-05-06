@@ -1,11 +1,22 @@
-<ion-content class="ion-justify-content-evenly">
-  <div class="container ion-margin-top">
-    <h3 class="press-start-2p-regular" #h3Element>Fermín González</h3>
-  </div>
-
-  <img #imgElement src="../../assets/icon/favicon.png" />
-
+<ion-content>
   <div class="container">
-    <h3 class="press-start-2p-regular" #h3Element>División 4B</h3>
+    <h3 class="nombre text-align: center">Fermín González</h3>
+
+    <img #imgElement src="../../assets/icon/favicon.png" />
+
+    <h3 class="division text-align: center">División 4B</h3>
   </div>
 </ion-content>
+
+<style scoped>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  .nombre, .division {
+    text-align: center;
+  }
+</style>

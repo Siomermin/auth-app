@@ -24,7 +24,7 @@ export class SplashPage implements OnInit {
     }, 1000); // Add classes after 1 second (1000 milliseconds)
 
     setTimeout(() => {
-      this.router.navigateByUrl('auth/login');
+      // this.router.navigateByUrl('auth/login');
     }, 3000);
 
 
