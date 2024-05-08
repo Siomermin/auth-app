@@ -21,11 +21,11 @@ export class SplashPage implements OnInit {
       this.renderer.addClass(this.h1Element.nativeElement, 'shake-vertical');
       this.renderer.addClass(this.h3Element.nativeElement, 'shake-vertical');
       this.renderer.addClass(this.imgElement.nativeElement, 'wobble-horizontal-bottom');
-    }, 1000); // Add classes after 1 second (1000 milliseconds)
+    }, 3000); // Add classes after 1 second (1000 milliseconds)
 
     setTimeout(() => {
        this.router.navigateByUrl('auth/login');
-    }, 3000);
+    }, 4000);
 
 
   }
