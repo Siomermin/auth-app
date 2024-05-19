@@ -1,3 +1,11 @@
+ion-content {
+  --background: #4984ad;
+
+}
+
+span {
+  opacity: 0.8;
+}
 .content {
   --ion-safe-area-bottom: 0;
 }
@@ -49,7 +57,7 @@ ion-footer {
 }
 
 .message.received .message-content {
-  background-color: #3573a0; /* Background color for received messages */
+  background-color: #1c6599; /* Background color for received messages */
   border-radius: 1%;
 
 }

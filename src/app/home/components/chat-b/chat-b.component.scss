@@ -2,6 +2,11 @@
   --ion-safe-area-bottom: 0;
 }
 
+
+span {
+  opacity: 0.8;
+}
+
 ion-footer {
   position: fixed;
   bottom: 0;
@@ -13,6 +18,8 @@ ion-footer {
 .message-container {
   max-height: calc(100vh - 50px); /* Adjust based on footer height */
   overflow-y: auto;
+  background-color: #a8464e; /* Background color for received messages */
+
 }
 
 .message {
@@ -50,7 +57,7 @@ ion-footer {
 }
 
 .message.received .message-content {
-  background-color: #c0404a; /* Background color for received messages */
+  background-color: #b31b28; /* Background color for received messages */
   border-radius: 1%;
 
 }

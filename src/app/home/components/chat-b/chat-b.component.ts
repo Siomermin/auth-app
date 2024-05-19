@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 
-
 interface message {
   sender: string;
   email: string;
@@ -10,17 +9,14 @@ interface message {
   date: string;
 }
 
-
 @Component({
   selector: 'app-chat-b',
   templateUrl: './chat-b.component.html',
   styleUrls: ['./chat-b.component.scss'],
 })
-export class ChatBComponent  implements OnInit {
+export class ChatBComponent implements OnInit {
   private authService = inject(AuthService);
   private firestore = inject(FirestoreService);
-
-  // public loggedUser?: any = JSON.parse(localStorage.getItem('loggedUser')!)
 
   loggedUser: any;
 
@@ -32,9 +28,7 @@ export class ChatBComponent  implements OnInit {
   };
 
   showChat: boolean = false;
-
   message: string = '';
-
   messageList: message[] = [];
 
   constructor() {
@@ -42,11 +36,7 @@ export class ChatBComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.authService.getLoggedUser().subscribe((user) => {
-    // });
     this.loggedUser = JSON.parse(localStorage.getItem('loggedUser')!);
-
-
     this.getMessages();
   }
 
@@ -97,12 +87,12 @@ export class ChatBComponent  implements OnInit {
         updatedMessageList.push(<message>msg);
       });
 
-      // Sort the messages by date in descending order (newest first)
+      // Sort the messages by date in ascending order (oldest first)
       updatedMessageList.sort((a, b) => {
         const dateA: any = a['date'];
         const dateB: any = b['date'];
 
-        return dateB.getTime() - dateA.getTime(); // Compare by milliseconds (including seconds)
+        return dateA.getTime() - dateB.getTime(); // Compare by milliseconds (including seconds)
       });
 
       // Now that the messages are sorted, format the date and time
@@ -121,22 +111,18 @@ export class ChatBComponent  implements OnInit {
       });
 
       this.messageList = updatedMessageList; // Update the messageList with the sorted and formatted messages
+
+      // Scroll to the bottom after messages are loaded
+      setTimeout(() => {
+        this.scrollToTheLastElement();
+      }, 10);
     });
   }
 
-  // Scrollea hasta el ultimo msj asi se muestra.
   scrollToTheLastElement() {
-    let elements = document.getElementsByClassName('msj');
-    if (elements.length > 0) {
-      let lastElement: any = elements[elements.length - elements.length + 1];
-      let toppos = lastElement.offsetTop;
-
-      let messageContainer = document.getElementById('message-container');
-
-      if (messageContainer) {
-        messageContainer.scrollTop = toppos;
-      }
+    const messageContainer = document.getElementById('message-container');
+    if (messageContainer) {
+      messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   }
-
 }
