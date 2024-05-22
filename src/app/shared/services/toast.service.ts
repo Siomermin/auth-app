@@ -3,7 +3,7 @@ import { ToastController } from '@ionic/angular';
 
 type Position = 'top' | 'middle' | 'bottom';
 
-type Color = 'success' | 'danger' | 'primary';
+type Color = 'success' | 'danger' | 'primary' | 'warning';
 
 
 @Injectable({

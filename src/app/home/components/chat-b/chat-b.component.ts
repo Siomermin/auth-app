@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 interface message {
   sender: string;
@@ -15,8 +16,8 @@ interface message {
   styleUrls: ['./chat-b.component.scss'],
 })
 export class ChatBComponent implements OnInit {
-  private authService = inject(AuthService);
   private firestore = inject(FirestoreService);
+  private toastService = inject(ToastService);
 
   loggedUser: any;
 
@@ -43,6 +44,13 @@ export class ChatBComponent implements OnInit {
   sendMessage() {
     if (this.message == '') return;
 
+    let trimmedMessage = this.message.trim().substring(0, 21); // Limita el mensaje a 21 caracteres
+
+    if (trimmedMessage.length < this.message.trim().length) {
+      // Muestra una alerta o mensaje indicando que el mensaje se truncó
+      console.warn('El mensaje se limitó a 21 caracteres.');
+      this.toastService.presentToast('El mensaje se limitó a 21 caracteres.', 'top', 'warning');
+    }
     let date = new Date();
     const timestamp = new Date(date);
 

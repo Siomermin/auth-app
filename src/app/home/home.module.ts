@@ -14,7 +14,7 @@ import { ChatBComponent } from './components/chat-b/chat-b.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
   declarations: [HomePage, ChatAComponent, ChatBComponent]
 })
