@@ -59,7 +59,7 @@ export class ChatBComponent implements OnInit {
     let message = {
       sender: this.loggedUser.uid,
       email: username,
-      text: this.message,
+      text: trimmedMessage,
       date: timestamp,
     };
 

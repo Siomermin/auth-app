@@ -1,34 +1,37 @@
-<div id="message-container" class="message-container">
-  <div
-    *ngFor="let message of messageList"
-    class="message-wrapper"
-    [ngClass]="{ 'sent': loggedUser.uid === message.sender, 'received': loggedUser.uid !== message.sender }"
-  >
+<ion-content [fullscreen]="true">
+  <div id="message-container" class="message-container">
     <div
-      class="message"
+      *ngFor="let message of messageList"
+      class="message-wrapper"
       [ngClass]="{ 'sent': loggedUser.uid === message.sender, 'received': loggedUser.uid !== message.sender }"
     >
-      <div class="message-content ion-margin">
-        <p class="message-text">{{ message.text }}</p>
-        <div class="message-details">
-          <span *ngIf="loggedUser.uid !== message.sender" class="message-data">{{ message.email }}</span>
-          <span class="message-data">{{ message.date }}</span>
+      <div
+        class="message"
+        [ngClass]="{ 'sent': loggedUser.uid === message.sender, 'received': loggedUser.uid !== message.sender }"
+      >
+        <div class="message-content ion-margin">
+          <p class="message-text">{{ message.text }}</p>
+          <div class="message-details">
+            <span *ngIf="loggedUser.uid !== message.sender" class="message-data">{{ message.email }}</span>
+            <span class="message-data">{{ message.date }}</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-input
-      type="text"
-      placeholder="..."
-      [(ngModel)]="message"
-      [ngModelOptions]="{ standalone: true }"
-    ></ion-input>
-    <ion-buttons slot="end">
-      <ion-button color="danger" (click)="sendMessage()">Enviar</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-input
+        type="text"
+        placeholder="..."
+        [(ngModel)]="message"
+        [ngModelOptions]="{ standalone: true }"
+      ></ion-input>
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="sendMessage()">Enviar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>
